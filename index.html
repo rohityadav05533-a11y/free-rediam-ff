@@ -12,152 +12,160 @@
 body{
   margin:0;
   font-family:Arial,sans-serif;
-  background:linear-gradient(135deg,#09001f,#18004d,#000);
+  background:linear-gradient(135deg,#090909,#191919);
   color:white;
-  text-align:center;
-}
-header{
-  padding:22px 10px;
-  background:rgba(0,0,0,.45);
-}
-h1{
-  margin:0;
-  font-size:30px;
-  color:#ffd700;
-}
-.sub{
-  margin-top:7px;
-  color:#ddd;
 }
 .container{
-  padding:18px;
-  max-width:600px;
+  max-width:500px;
   margin:auto;
+  padding:20px;
 }
-button{
+.logo{
+  text-align:center;
+  font-size:32px;
+  font-weight:bold;
+  color:#00ff88;
+  margin-top:20px;
+}
+.subtitle{
+  text-align:center;
+  color:#ccc;
+  margin-bottom:25px;
+}
+.btn{
+  width:100%;
   border:0;
+  padding:15px;
+  margin:8px 0;
   border-radius:12px;
-  padding:13px 20px;
-  margin:7px;
-  font-size:16px;
+  font-size:17px;
   font-weight:bold;
   cursor:pointer;
 }
 .youtube{background:#ff0000;color:white}
 .telegram{background:#229ed9;color:white}
-.start{background:#00d26a;color:white}
-.start:disabled{
-  background:#555;
-  color:#aaa;
-  cursor:not-allowed;
-}
+.start{background:#00c853;color:white}
+.start:disabled{background:#555;color:#aaa}
 .card{
-  background:rgba(255,255,255,.09);
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:16px;
-  padding:18px;
-  margin:15px 0;
+  background:#222;
+  border:1px solid #333;
+  border-radius:15px;
+  padding:16px;
+  margin-top:15px;
 }
+.card h3{margin-top:0;color:#00ff88}
 input{
   width:100%;
-  padding:13px;
+  padding:14px;
   margin:7px 0;
   border-radius:10px;
-  border:0;
+  border:1px solid #555;
+  background:#111;
+  color:white;
   font-size:16px;
 }
-.status{
-  margin:15px 0;
-  padding:12px;
-  border-radius:10px;
-  background:rgba(255,255,255,.08);
+.message{
+  text-align:center;
+  margin:12px 0;
+  font-weight:bold;
 }
-.success{color:#00ff8c}
-.error{color:#ff7070}
-.small{font-size:13px;color:#bbb}
+.small{
+  font-size:13px;
+  color:#aaa;
+  text-align:center;
+  margin-top:15px;
+}
+.hidden{display:none}
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>🔥 FREE REDIAM FF 🔥</h1>
-  <div class="sub">Free Fire Tournaments</div>
-</header>
-
 <div class="container">
 
-  <div class="card">
-    <h2>🎮 Tournament में Join करें</h2>
+  <div class="logo">🔥 FREE REDIAM FF 🔥</div>
+  <div class="subtitle">Free Fire Tournament</div>
 
-    <button class="youtube" onclick="openYouTube()">
-      ▶️ YouTube Subscribe
-    </button>
+  <button class="btn youtube" onclick="openYouTube()">
+    ▶️ YouTube Subscribe
+  </button>
 
-    <button class="telegram" onclick="openTelegram()">
-      ✈️ Telegram Join
-    </button>
+  <button class="btn telegram" onclick="openTelegram()">
+    ✈️ Join Telegram
+  </button>
 
-    <div id="status" class="status">
-      पहले YouTube verification करें।
-    </div>
+  <div id="verifyMessage" class="message"></div>
 
-    <button id="startBtn" class="start" disabled onclick="startTournament()">
-      🚀 START
-    </button>
-  </div>
+  <button id="startBtn" class="btn start" disabled onclick="showTournaments()">
+    🔒 पहले YouTube Subscribe Verify करें
+  </button>
 
-  <div id="tournaments">
+  <div id="tournaments" class="hidden">
 
     <div class="card">
-      <h2>🏆 Battle Royale</h2>
-      <p>Entry: FREE</p>
-      <p>Prize: Tournament के अनुसार</p>
-      <button class="start" onclick="showJoin('Battle Royale')">
+      <h3>🏆 Battle Royale</h3>
+      <p>🎟️ Entry: FREE</p>
+      <p>👥 Players: 48</p>
+      <button class="btn start" onclick="joinTournament('Battle Royale')">
         JOIN NOW
       </button>
     </div>
 
     <div class="card">
-      <h2>⚔️ Clash Squad</h2>
-      <p>Entry: FREE</p>
-      <p>Prize: Tournament के अनुसार</p>
-      <button class="start" onclick="showJoin('Clash Squad')">
+      <h3>⚔️ Clash Squad</h3>
+      <p>🎟️ Entry: FREE</p>
+      <p>👥 Players: 12</p>
+      <button class="btn start" onclick="joinTournament('Clash Squad')">
         JOIN NOW
       </button>
     </div>
 
   </div>
 
-  <div id="joinBox" class="card" style="display:none">
-    <h2>🎮 Tournament Join</h2>
+  <div id="joinBox" class="card hidden">
 
-    <input id="uid" type="text" placeholder="Free Fire UID">
-    <input id="playerName" type="text" placeholder="In-Game Name">
+    <h3>🎮 Tournament Join</h3>
 
-    <button class="start" onclick="submitJoin()">
-      ✅ JOIN
+    <p id="selectedTournament"></p>
+
+    <input
+      id="uid"
+      type="text"
+      placeholder="Free Fire UID"
+      inputmode="numeric"
+    >
+
+    <input
+      id="playerName"
+      type="text"
+      placeholder="In-Game Name"
+    >
+
+    <button class="btn start" onclick="submitJoin()">
+      ✅ JOIN TOURNAMENT
     </button>
+
+    <div id="joinMessage" class="message"></div>
 
     <p class="small">
-      ⚠️ Free Fire password कभी भी यहाँ न डालें।
+      ⚠️ Free Fire password कभी भी न दें।
     </p>
 
-    <div id="joinResult"></div>
   </div>
 
 </div>
 
 <script>
+
 /* ==============================
-   AIzaSyAFJsju7_5pZmhSK43-lrtjk1M4LbbhADo
+   सिर्फ अपनी नई API KEY यहाँ डालें
    ============================== */
 
-AIzaSyACZNb-kXbpzFCLQMfrjbPem_v80jx_tWI
+ AIzaSyACZNb-kXbpzFCLQMfrjbPem_v80jx_tWI
 
 
 /* ==============================
-   2. Google OAuth Client ID
+   Google OAuth Client ID
    ============================== */
 
 const CLIENT_ID =
@@ -165,106 +173,95 @@ const CLIENT_ID =
 
 
 /* ==============================
-   3. तुम्हारा YouTube HANDLE
+   आपका YouTube Channel Handle
    ============================== */
 
 const CHANNEL_HANDLE = "realrohit07realrohit07";
 
 
 let targetChannelId = null;
-let tokenClient = null;
-let verified = false;
-let selectedTournament = "";
+let accessToken = null;
 
 
-/* ==============================
-   YouTube channel खोलना
-   ============================== */
+/* YouTube खोलना */
 
 function openYouTube(){
+
   window.open(
     "https://youtube.com/@realrohit07realrohit07",
     "_blank"
   );
 
-  startGoogleVerification();
+  setTimeout(() => {
+    startGoogleVerification();
+  }, 1000);
 }
 
 
-/* ==============================
-   Telegram
-   ============================== */
+/* Telegram खोलना */
 
 function openTelegram(){
+
   window.open(
     "https://t.me/freerediam_ff",
     "_blank"
   );
+
 }
 
 
-/* ==============================
-   Status
-   ============================== */
-
-function setStatus(text, type=""){
-  const box=document.getElementById("status");
-  box.innerHTML=text;
-  box.className="status "+type;
-}
-
-
-/* ==============================
-   Google OAuth शुरू
-   ============================== */
+/* Google Verification शुरू */
 
 function startGoogleVerification(){
 
-  if(API_KEY === "PASTE_YOUR_NEW_API_KEY_HERE"){
-    setStatus(
-      "⚠️ पहले code में अपनी नई API key डालनी होगी।",
-      "error"
-    );
-    return;
-  }
+  const message =
+    document.getElementById("verifyMessage");
+
+  message.innerText =
+    "🔄 YouTube Subscription Verify हो रही है...";
 
   if(!window.google || !google.accounts){
-    setStatus(
-      "Google Login अभी load हो रहा है। थोड़ी देर बाद फिर दबाएँ।",
-      "error"
-    );
+
+    message.innerText =
+      "❌ Google Login अभी तैयार नहीं है। थोड़ी देर बाद कोशिश करें।";
+
     return;
   }
 
-  tokenClient = google.accounts.oauth2.initTokenClient({
-    client_id: CLIENT_ID,
+  const tokenClient =
+    google.accounts.oauth2.initTokenClient({
 
-    scope:
+      client_id: CLIENT_ID,
+
+      scope:
       "https://www.googleapis.com/auth/youtube.readonly",
 
-    callback: async function(response){
+      callback: async (response) => {
 
-      if(response.error){
-        setStatus(
-          "❌ Google verification cancel या fail हो गई।",
-          "error"
-        );
-        return;
+        if(response.error){
+
+          message.innerText =
+            "❌ Google verification नहीं हुई।";
+
+          return;
+        }
+
+        accessToken = response.access_token;
+
+        await verifySubscription();
+
       }
 
-      await checkSubscription(response.access_token);
-    }
-  });
+    });
 
   tokenClient.requestAccessToken({
     prompt:"consent"
   });
+
 }
 
 
-/* ==============================
-   Channel ID निकालना
-   ============================== */
+/* Channel ID निकालना */
 
 async function findChannelId(){
 
@@ -276,40 +273,57 @@ async function findChannelId(){
     "&key=" +
     encodeURIComponent(API_KEY);
 
-  const res = await fetch(url);
+  const response = await fetch(url);
 
-  if(!res.ok){
-    throw new Error("Channel API error");
+  if(!response.ok){
+
+    throw new Error(
+      "Channel API Error: " + response.status
+    );
+
   }
 
-  const data = await res.json();
+  const data = await response.json();
 
   if(!data.items || data.items.length === 0){
-    throw new Error("Channel not found");
+
+    throw new Error("Channel नहीं मिला");
+
   }
 
   return data.items[0].id;
+
 }
 
 
-/* ==============================
-   Subscription check
-   ============================== */
+/* Subscription Verify */
 
-async function checkSubscription(accessToken){
+async function verifySubscription(){
+
+  const message =
+    document.getElementById("verifyMessage");
 
   try{
 
-    setStatus(
-      "🔍 YouTube subscription check हो रही है...",
-      ""
-    );
+    if(
+      !API_KEY ||
+      API_KEY === "PASTE_YOUR_NEW_API_KEY_HERE"
+    ){
 
-    if(!targetChannelId){
-      targetChannelId = await findChannelId();
+      message.innerText =
+        "❌ पहले API Key डालें।";
+
+      return;
+
     }
 
+
+    targetChannelId =
+      await findChannelId();
+
+
     let pageToken = "";
+
 
     while(true){
 
@@ -317,170 +331,188 @@ async function checkSubscription(accessToken){
         "https://www.googleapis.com/youtube/v3/subscriptions" +
         "?part=snippet" +
         "&mine=true" +
-        "&maxResults=50";
+        "&maxResults=50" +
+        "&access_token=" +
+        encodeURIComponent(accessToken);
+
 
       if(pageToken){
+
         url +=
           "&pageToken=" +
           encodeURIComponent(pageToken);
+
       }
 
-      const res = await fetch(url,{
-        headers:{
-          Authorization:"Bearer "+accessToken
-        }
-      });
 
-      if(!res.ok){
+      const response =
+        await fetch(url);
 
-        const errorData = await res.json().catch(()=>({}));
 
-        console.log(errorData);
+      if(!response.ok){
 
         throw new Error(
-          "Subscription API error"
+          "Subscription API Error: " +
+          response.status
         );
+
       }
 
-      const data = await res.json();
 
-      const found =
-        (data.items || []).some(item =>
-          item.snippet &&
-          item.snippet.resourceId &&
-          item.snippet.resourceId.channelId === targetChannelId
-        );
+      const data =
+        await response.json();
 
-      if(found){
 
-        verified = true;
+      if(data.items){
 
-        setStatus(
-          "✅ YouTube Subscription Verified! अब START दबा सकते हो।",
-          "success"
-        );
+        for(const item of data.items){
 
-        document.getElementById("startBtn").disabled=false;
+          const subscribedChannel =
+            item.snippet
+              .resourceId
+              .channelId;
 
-        return;
+
+          if(
+            subscribedChannel ===
+            targetChannelId
+          ){
+
+            message.innerText =
+              "✅ YouTube Subscribe Verify हो गया!";
+
+            const startBtn =
+              document.getElementById("startBtn");
+
+            startBtn.disabled = false;
+
+            startBtn.innerText =
+              "🚀 START TOURNAMENT";
+
+            return;
+
+          }
+
+        }
+
       }
 
-      pageToken = data.nextPageToken || "";
 
-      if(!pageToken) break;
+      if(!data.nextPageToken){
+
+        break;
+
+      }
+
+
+      pageToken =
+        data.nextPageToken;
+
     }
 
-    verified=false;
 
-    setStatus(
-      "❌ तुम्हारी subscription नहीं मिली। पहले चैनल Subscribe करो, फिर दोबारा verification करो।",
-      "error"
-    );
+    message.innerText =
+      "❌ आपने अभी इस चैनल को Subscribe नहीं किया है।";
+
 
   }catch(error){
 
     console.error(error);
 
-    setStatus(
-      "❌ Verification में समस्या आई। API key, YouTube API और Google OAuth settings check करें।",
-      "error"
-    );
+    message.innerText =
+      "❌ Verification में समस्या हुई।";
+
   }
+
 }
 
 
-/* ==============================
-   START
-   ============================== */
+/* Tournament दिखाना */
 
-function startTournament(){
+function showTournaments(){
 
-  if(!verified){
-    setStatus(
-      "पहले YouTube subscription verify करो।",
-      "error"
-    );
-    return;
-  }
+  document
+    .getElementById("tournaments")
+    .classList.remove("hidden");
 
-  document.getElementById("tournaments")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
 }
 
 
-/* ==============================
-   Tournament Join
-   ============================== */
+/* Tournament Join */
 
-function showJoin(name){
+function joinTournament(name){
 
-  if(!verified){
-    setStatus(
-      "❌ पहले YouTube subscription verify करो।",
-      "error"
-    );
-    return;
-  }
+  document
+    .getElementById("joinBox")
+    .classList.remove("hidden");
 
-  selectedTournament=name;
+  document
+    .getElementById("selectedTournament")
+    .innerText =
+      "🏆 Tournament: " + name;
 
-  document.getElementById("joinBox")
-    .style.display="block";
-
-  document.getElementById("joinBox")
+  document
+    .getElementById("joinBox")
     .scrollIntoView({
       behavior:"smooth"
     });
 
-  document.getElementById("joinResult").innerHTML="";
 }
 
 
-/* ==============================
-   Join Submit
-   ============================== */
+/* Join Submit */
 
 function submitJoin(){
 
   const uid =
     document.getElementById("uid").value.trim();
 
-  const name =
+  const playerName =
     document.getElementById("playerName").value.trim();
 
-  if(!uid || !name){
+  const message =
+    document.getElementById("joinMessage");
 
-    document.getElementById("joinResult").innerHTML =
-      "<p class='error'>❌ UID और Name दोनों भरें।</p>";
+
+  if(!uid){
+
+    message.innerText =
+      "❌ UID डालें।";
 
     return;
+
   }
 
-  document.getElementById("joinResult").innerHTML =
-    "<p class='success'>" +
-    "✅ Join request received!<br>" +
-    "Tournament: "+escapeHTML(selectedTournament)+"<br>" +
-    "UID: "+escapeHTML(uid)+"<br>" +
-    "Name: "+escapeHTML(name) +
-    "</p>";
+
+  if(!playerName){
+
+    message.innerText =
+      "❌ In-Game Name डालें।";
+
+    return;
+
+  }
+
+
+  if(uid.length < 5){
+
+    message.innerText =
+      "❌ सही Free Fire UID डालें।";
+
+    return;
+
+  }
+
+
+  message.innerText =
+    "✅ Join Request Submit हो गई!";
+
+
+  document.getElementById("uid").value = "";
+  document.getElementById("playerName").value = "";
+
 }
 
-
-/* ==============================
-   Security helper
-   ============================== */
-
-function escapeHTML(value){
-
-  return value
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-}
 
 </script>
 
