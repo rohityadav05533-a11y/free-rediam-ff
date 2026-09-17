@@ -26,6 +26,7 @@ header p{margin:8px 0 0}
   margin:auto;
   padding:18px;
 }
+
 .card{
   background:#1d1d1d;
   border:1px solid #333;
@@ -33,6 +34,7 @@ header p{margin:8px 0 0}
   padding:18px;
   margin-bottom:16px;
 }
+
 button,.btn{
   width:100%;
   display:block;
@@ -47,9 +49,11 @@ button,.btn{
   color:white;
   background:#ff7200;
 }
+
 .youtube{background:#e62117}
 .telegram{background:#168de2}
 .download{background:#19a463}
+
 input{
   width:100%;
   padding:13px;
@@ -60,11 +64,13 @@ input{
   color:white;
   font-size:15px;
 }
+
 .notice{
   color:#ffd28a;
   font-size:13px;
   line-height:1.5;
 }
+
 .success{
   color:#38d27b;
   font-weight:bold;
@@ -81,111 +87,109 @@ input{
 
 <div class="container">
 
+<div class="card">
+  <h2>👋 Welcome</h2>
+
+  <p>
+    Tournament में आने से पहले हमारे YouTube चैनल को
+    Subscribe करके और Telegram से जुड़कर हमें Support करें। ❤️
+  </p>
+
+  <a class="btn youtube"
+     href="https://youtube.com/@realrohit07realrohit07"
+     target="_blank">
+    ▶️ YouTube Subscribe
+  </a>
+
+  <a class="btn telegram"
+     href="https://t.me/freerediam_ff"
+     target="_blank">
+    📢 Telegram Join
+  </a>
+
+  <a class="btn download"
+     href="https://github.com/user-attachments/files/32347095/FREE_REDIAM_FF__v1.0.0.zip"
+     target="_blank">
+    📥 Download App
+  </a>
+
+  <p class="notice">
+    ❤️ आपका Subscribe हमारे चैनल को आगे बढ़ाने में मदद करेगा।
+  </p>
+</div>
+
+<div class="card">
+  <h2>🏆 Available Tournaments</h2>
+
   <div class="card">
-    <h2>👋 Welcome</h2>
+    <h3>🔥 Battle Royale</h3>
+    <p>FREE ENTRY</p>
+    <p>Solo • 48 Players</p>
 
-    <p>
-      Tournament में आने से पहले हमारे YouTube चैनल को
-      Subscribe करके और Telegram से जुड़कर हमें Support करें। ❤️
-    </p>
-
-    <a class="btn youtube"
-       href="https://youtube.com/@realrohit07realrohit07"
-       target="_blank">
-      ▶️ YouTube Subscribe
-    </a>
-
-    <a class="btn telegram"
-       href="https://t.me/freerediam_ff"
-       target="_blank">
-      📢 Telegram Join
-    </a>
-
-    <a class="btn download"
-       href="https://github.com/rohityadav05533-a11y/free-rediam-ff/releases/download/v1.0.2/FREE_REDIAM_FF__v1.0.0.zip"
-       target="_blank">
-      📥 Download App
-    </a>
-
-    <p class="notice">
-      ❤️ आपका Subscribe हमारे चैनल को आगे बढ़ाने में मदद करेगा।
-    </p>
-  </div>
-
-
-  <div class="card">
-    <h2>🏆 Available Tournaments</h2>
-
-    <div class="card">
-      <h3>🔥 Battle Royale</h3>
-      <p>FREE ENTRY</p>
-      <p>Solo • 48 Players</p>
-      <button onclick="openJoin('Battle Royale')">
-        🎮 Join Tournament
-      </button>
-    </div>
-
-    <div class="card">
-      <h3>⚔️ Clash Squad</h3>
-      <p>FREE ENTRY</p>
-      <p>Registration Open</p>
-      <button onclick="openJoin('Clash Squad')">
-        🎮 Join Tournament
-      </button>
-    </div>
-  </div>
-
-
-  <div class="card" id="joinBox" style="display:none">
-
-    <h2>🎮 Tournament Join</h2>
-
-    <p id="selectedTournament"></p>
-
-    <input
-      id="uid"
-      type="text"
-      inputmode="numeric"
-      placeholder="Free Fire UID">
-
-    <input
-      id="playerName"
-      type="text"
-      placeholder="Free Fire Name">
-
-    <button onclick="submitJoin()">
-      ✅ Submit Entry
+    <button onclick="openJoin('Battle Royale')">
+      🎮 Join Tournament
     </button>
-
-    <p id="result"></p>
-
-    <p class="notice">
-      ⚠️ अपना Free Fire Password किसी को भी न दें।
-      केवल UID और Name की जरूरत है।
-    </p>
   </div>
-
 
   <div class="card">
-    <h3>📢 Important</h3>
+    <h3>⚔️ Clash Squad</h3>
+    <p>FREE ENTRY</p>
+    <p>Registration Open</p>
 
-    <p>
-      Room ID और Password tournament के समय
-      Telegram channel पर दिए जा सकते हैं।
-    </p>
-
-    <p>
-      Telegram:
-      <b>@freerediam_ff</b>
-    </p>
-
-    <p class="success">
-      FREE ENTRY ❤️
-    </p>
+    <button onclick="openJoin('Clash Squad')">
+      🎮 Join Tournament
+    </button>
   </div>
+</div>
+
+<div class="card" id="joinBox" style="display:none">
+
+  <h2>🎮 Tournament Join</h2>
+
+  <p id="selectedTournament"></p>
+
+  <input
+    id="uid"
+    type="text"
+    inputmode="numeric"
+    placeholder="Free Fire UID">
+
+  <input
+    id="playerName"
+    type="text"
+    placeholder="Free Fire Name">
+
+  <button onclick="submitJoin()">
+    ✅ Submit Entry
+  </button>
+
+  <p id="result"></p>
+
+  <p class="notice">
+    ⚠️ अपना Free Fire Password किसी को भी न दें।
+    केवल UID और Name की जरूरत है।
+  </p>
 
 </div>
 
+<div class="card">
+  <h3>📢 Important</h3>
+
+  <p>
+    Room ID और Password tournament के समय
+    Telegram channel पर दिए जा सकते हैं।
+  </p>
+
+  <p>
+    Telegram: <b>@freerediam_ff</b>
+  </p>
+
+  <p class="success">
+    FREE ENTRY ❤️
+  </p>
+</div>
+
+</div>
 
 <script>
 
@@ -207,7 +211,6 @@ function openJoin(tournament){
   });
 }
 
-
 function submitJoin(){
 
   const uid =
@@ -219,7 +222,6 @@ function submitJoin(){
   const result =
     document.getElementById("result");
 
-
   if(uid === "" || name === ""){
 
     result.innerText =
@@ -229,7 +231,6 @@ function submitJoin(){
 
     return;
   }
-
 
   if(uid.length < 5){
 
@@ -241,7 +242,6 @@ function submitJoin(){
     return;
   }
 
-
   result.innerText =
     "✅ Entry submitted successfully!";
 
@@ -249,7 +249,6 @@ function submitJoin(){
 
   document.getElementById("uid").value = "";
   document.getElementById("playerName").value = "";
-
 }
 
 </script>
