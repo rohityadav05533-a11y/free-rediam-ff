@@ -6,54 +6,59 @@
 <title>FREE REDIAM FF</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
 body{
   margin:0;
-  font-family:Arial,sans-serif;
-  background:#101010;
+  background:#111;
   color:white;
 }
 header{
-  background:linear-gradient(135deg,#ff5a00,#ff9d00);
   text-align:center;
   padding:25px 15px;
+  background:linear-gradient(135deg,#ff6a00,#ff9500);
 }
-header h1{margin:0;font-size:30px}
-header p{margin:8px 0 0}
-
+header h1{
+  margin:0;
+  font-size:30px;
+}
+header p{
+  margin:8px 0 0;
+}
 .container{
+  padding:20px;
   max-width:600px;
   margin:auto;
-  padding:18px;
 }
-
 .card{
   background:#1d1d1d;
-  border:1px solid #333;
-  border-radius:15px;
   padding:18px;
-  margin-bottom:16px;
+  margin:15px 0;
+  border-radius:15px;
+  border:1px solid #333;
 }
-
 button,.btn{
-  width:100%;
   display:block;
-  border:0;
-  border-radius:10px;
+  width:100%;
   padding:14px;
   margin:10px 0;
+  border:0;
+  border-radius:10px;
+  background:#ff7200;
+  color:white;
   font-size:16px;
   font-weight:bold;
   text-align:center;
   text-decoration:none;
-  color:white;
-  background:#ff7200;
 }
-
-.youtube{background:#e62117}
-.telegram{background:#168de2}
-.download{background:#19a463}
-
+.telegram{
+  background:#168de2;
+}
+.download{
+  background:#19a463;
+}
 input{
   width:100%;
   padding:13px;
@@ -62,18 +67,11 @@ input{
   border:1px solid #555;
   background:#292929;
   color:white;
-  font-size:15px;
 }
-
-.notice{
-  color:#ffd28a;
+.small{
+  color:#aaa;
   font-size:13px;
-  line-height:1.5;
-}
-
-.success{
-  color:#38d27b;
-  font-weight:bold;
+  text-align:center;
 }
 </style>
 </head>
@@ -89,44 +87,35 @@ input{
 
 <div class="card">
   <h2>👋 Welcome</h2>
+  <p>टूर्नामेंट में जुड़ने के लिए हमारे YouTube चैनल को Subscribe करें और Telegram से जुड़ें।</p>
 
-  <p>
-    Tournament में आने से पहले हमारे YouTube चैनल को
-    Subscribe करके और Telegram से जुड़कर हमें Support करें। ❤️
-  </p>
-
-  <a class="btn youtube"
+  <a class="btn"
      href="https://youtube.com/@realrohit07realrohit07"
      target="_blank">
-    ▶️ YouTube Subscribe
+     ▶️ YouTube Subscribe
   </a>
 
   <a class="btn telegram"
      href="https://t.me/freerediam_ff"
      target="_blank">
-    📢 Telegram Join
+     📢 Telegram Join
   </a>
 
   <a class="btn download"
-     href="https://github.com/user-attachments/files/32347095/FREE_REDIAM_FF__v1.0.0.zip"
+     href="https://github.com/rohityadav05533-a11y/free-rediam-ff/releases/download/v1.0.2/FREE_REDIAM_FF__v1.0.0.zip"
      target="_blank">
-    📥 Download App
+     📥 Download App
   </a>
-
-  <p class="notice">
-    ❤️ आपका Subscribe हमारे चैनल को आगे बढ़ाने में मदद करेगा।
-  </p>
 </div>
 
 <div class="card">
-  <h2>🏆 Available Tournaments</h2>
+  <h2>🏆 Tournaments</h2>
 
   <div class="card">
     <h3>🔥 Battle Royale</h3>
     <p>FREE ENTRY</p>
     <p>Solo • 48 Players</p>
-
-    <button onclick="openJoin('Battle Royale')">
+    <button onclick="joinTournament('Battle Royale')">
       🎮 Join Tournament
     </button>
   </div>
@@ -135,76 +124,47 @@ input{
     <h3>⚔️ Clash Squad</h3>
     <p>FREE ENTRY</p>
     <p>Registration Open</p>
-
-    <button onclick="openJoin('Clash Squad')">
+    <button onclick="joinTournament('Clash Squad')">
       🎮 Join Tournament
     </button>
   </div>
 </div>
 
-<div class="card" id="joinBox" style="display:none">
+<div class="card" id="joinBox" style="display:none;">
+  <h2>🎮 Join Tournament</h2>
 
-  <h2>🎮 Tournament Join</h2>
+  <input id="uid" type="text" placeholder="Free Fire UID">
+  <input id="name" type="text" placeholder="Free Fire Name">
 
-  <p id="selectedTournament"></p>
+  <button onclick="submitJoin()">✅ Submit Entry</button>
 
-  <input
-    id="uid"
-    type="text"
-    inputmode="numeric"
-    placeholder="Free Fire UID">
-
-  <input
-    id="playerName"
-    type="text"
-    placeholder="Free Fire Name">
-
-  <button onclick="submitJoin()">
-    ✅ Submit Entry
-  </button>
-
-  <p id="result"></p>
-
-  <p class="notice">
-    ⚠️ अपना Free Fire Password किसी को भी न दें।
-    केवल UID और Name की जरूरत है।
+  <p class="small">
+    अपना Free Fire Password कभी भी किसी को न दें।
   </p>
 
+  <p id="result"></p>
 </div>
 
 <div class="card">
   <h3>📢 Important</h3>
-
-  <p>
-    Room ID और Password tournament के समय
-    Telegram channel पर दिए जा सकते हैं।
-  </p>
-
-  <p>
-    Telegram: <b>@freerediam_ff</b>
-  </p>
-
-  <p class="success">
-    FREE ENTRY ❤️
-  </p>
+  <p>Room ID और Password टूर्नामेंट के नियमों के अनुसार बाद में Telegram पर दिए जा सकते हैं।</p>
+  <p class="small">FREE REDIAM FF</p>
 </div>
 
 </div>
 
 <script>
 
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbwBv2zsakITksbrY-N8Z8H3o88FMb9cL7odyqeBc8DIgjiB8YtVu9AwlCMmSpAy2KHYhA/exec";
+
 let selectedTournament = "";
 
-function openJoin(tournament){
+function joinTournament(tournament){
 
   selectedTournament = tournament;
 
-  document.getElementById("joinBox").style.display = "block";
-
-  document.getElementById("selectedTournament").innerText =
-    "Tournament: " + tournament;
-
-  document.getElementById("result").innerText = "";
+  document.getElementById("joinBox").style.display="block";
 
   document.getElementById("joinBox").scrollIntoView({
     behavior:"smooth"
@@ -217,7 +177,7 @@ function submitJoin(){
     document.getElementById("uid").value.trim();
 
   const name =
-    document.getElementById("playerName").value.trim();
+    document.getElementById("name").value.trim();
 
   const result =
     document.getElementById("result");
@@ -225,30 +185,57 @@ function submitJoin(){
   if(uid === "" || name === ""){
 
     result.innerText =
-      "❌ UID और Free Fire Name भरें।";
+      "❌ UID और Name दोनों भरें।";
 
-    result.style.color = "#ff5555";
-
-    return;
-  }
-
-  if(uid.length < 5){
-
-    result.innerText =
-      "❌ सही Free Fire UID डालें।";
-
-    result.style.color = "#ff5555";
+    result.style.color="#ff5555";
 
     return;
   }
 
   result.innerText =
-    "✅ Entry submitted successfully!";
+    "⏳ Entry save हो रही है...";
 
-  result.style.color = "#38d27b";
+  result.style.color="#ffcc00";
 
-  document.getElementById("uid").value = "";
-  document.getElementById("playerName").value = "";
+  fetch(SCRIPT_URL,{
+    method:"POST",
+    body:JSON.stringify({
+      tournament:selectedTournament,
+      uid:uid,
+      name:name,
+      youtube:"Support"
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+
+    if(data.success){
+
+      result.innerText =
+        "✅ Entry सफलतापूर्वक save हो गई!";
+
+      result.style.color="#35d07f";
+
+      document.getElementById("uid").value="";
+      document.getElementById("name").value="";
+
+    }else{
+
+      result.innerText =
+        "❌ Entry save नहीं हुई।";
+
+      result.style.color="#ff5555";
+    }
+
+  })
+  .catch(error => {
+
+    result.innerText =
+      "❌ Server से connection नहीं हुआ।";
+
+    result.style.color="#ff5555";
+
+  });
 }
 
 </script>
