@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>FREE REDIAM FF</title>
 
 <style>
@@ -100,7 +101,7 @@ input{
   border-radius:12px;
   padding:16px;
   margin-top:12px;
-  background:#0e0e19;
+  background:#0d0d18;
 }
 
 .tournament h3{
@@ -108,21 +109,31 @@ input{
   margin-bottom:8px;
 }
 
-.small{
-  font-size:13px;
-  color:#999;
-}
-
-#home,#join{
-  display:none;
+.tournament p{
+  margin-bottom:5px;
 }
 
 .success{
-  background:#12351f;
-  color:#7dff9d;
-  padding:12px;
+  display:none;
+  margin-top:15px;
+  padding:15px;
   border-radius:10px;
-  margin-top:12px;
+  background:#123b2b;
+  border:1px solid #19a974;
+  color:#8ff0c2;
+  text-align:center;
+  font-weight:bold;
+}
+
+.small{
+  font-size:13px;
+  color:#999;
+  margin-top:10px;
+  text-align:center;
+}
+
+#home,
+#join{
   display:none;
 }
 </style>
@@ -131,151 +142,149 @@ input{
 <body>
 
 <header>
-FREE REDIAM FF
+  FREE REDIAM FF
 </header>
 
-<div class="container">
 
-<!-- WELCOME -->
-<section id="welcome">
+<!-- ===============================
+     WELCOME
+================================ -->
 
-<div class="card">
-<h2>FREE REDIAM FF</h2>
+<div id="welcome" class="container">
 
-<p>
-शुरू करने से पहले हमारे YouTube चैनल को Subscribe करें
-और Telegram से जुड़ें।
-</p>
+  <div class="card">
 
-<button class="btn" onclick="subscribeYouTube()">
-▶️ YouTube Subscribe
-</button>
+    <h2>🔥 FREE REDIAM FF</h2>
 
-<button class="btn blue" onclick="joinTelegram()">
-📢 Telegram Join
-</button>
+    <p>
+      शुरू करने से पहले हमारे YouTube चैनल को Subscribe करें
+      और Telegram से जुड़ें।
+    </p>
 
-<button id="startBtn" class="btn green" onclick="startApp()" disabled>
-🚀 START
-</button>
+    <button class="btn" onclick="subscribeYouTube()">
+      ▶️ YouTube Subscribe
+    </button>
 
-<p class="small" style="margin-top:12px;">
-पहले YouTube Subscribe बटन दबाएँ, फिर START करें।
-</p>
-</div>
+    <button class="btn blue" onclick="joinTelegram()">
+      ✈️ Telegram Join
+    </button>
 
-<div class="card">
-<h2>📱 App Download</h2>
+    <button
+      id="startBtn"
+      class="btn green"
+      onclick="startApp()"
+      disabled>
+      🚀 START
+    </button>
 
-<p>
-FREE REDIAM FF Android App डाउनलोड करें।
-</p>
+    <p class="small">
+      Subscribe button दबाने के बाद START चालू होगा।
+    </p>
 
-<button class="btn gray" onclick="downloadApp()">
-⬇️ Download App
-</button>
-</div>
-
-</section>
-
-
-<!-- HOME -->
-<section id="home">
-
-<div class="card">
-<h2>🏆 FREE TOURNAMENTS</h2>
-<p>फ्री एंट्री • कोई Entry Fee नहीं</p>
-
-<div class="tournament">
-<h3>🔥 Battle Royale</h3>
-<p>
-FREE ENTRY<br>
-Solo • 48 Players
-</p>
-
-<button class="btn" onclick="joinTournament('Battle Royale')">
-JOIN BATTLE ROYALE
-</button>
-</div>
-
-<div class="tournament">
-<h3>⚔️ Clash Squad</h3>
-<p>
-FREE ENTRY<br>
-Registration Open
-</p>
-
-<button class="btn" onclick="joinTournament('Clash Squad')">
-JOIN CLASH SQUAD
-</button>
-</div>
+  </div>
 
 </div>
 
-<div class="card">
-<h2>📢 Telegram</h2>
-<p>
-Room ID और Password तथा tournament की जरूरी जानकारी
-Telegram पर दी जाएगी।
-</p>
 
-<button class="btn blue" onclick="joinTelegram()">
-📢 Join Telegram
-</button>
+<!-- ===============================
+     HOME
+================================ -->
+
+<div id="home" class="container">
+
+  <div class="card">
+
+    <h2>🏆 Tournaments</h2>
+
+    <div class="tournament">
+
+      <h3>FREE ENTRY</h3>
+
+      <p>Battle Royale</p>
+      <p>Solo • 48 Players</p>
+
+      <button
+        class="btn"
+        onclick="joinTournament('Battle Royale - Solo')">
+        🎮 JOIN TOURNAMENT
+      </button>
+
+    </div>
+
+
+    <div class="tournament">
+
+      <h3>FREE ENTRY</h3>
+
+      <p>Clash Squad</p>
+      <p>Registration Open</p>
+
+      <button
+        class="btn"
+        onclick="joinTournament('Clash Squad')">
+        🎮 JOIN TOURNAMENT
+      </button>
+
+    </div>
+
+  </div>
+
 </div>
 
-</section>
 
+<!-- ===============================
+     JOIN
+================================ -->
 
-<!-- JOIN -->
-<section id="join">
+<div id="join" class="container">
 
-<div class="card">
+  <div class="card">
 
-<h2>🎮 Tournament Join</h2>
+    <h2>📝 Tournament Entry</h2>
 
-<p id="selectedTournament"></p>
+    <p id="selectedTournament">
+      Tournament
+    </p>
 
-<input
-id="uid"
-type="text"
-placeholder="Free Fire UID"
->
+    <input
+      id="uid"
+      type="text"
+      inputmode="numeric"
+      placeholder="Free Fire UID">
 
-<input
-id="name"
-type="text"
-placeholder="Free Fire Name"
->
+    <input
+      id="name"
+      type="text"
+      placeholder="Free Fire Name">
 
-<button class="btn green" onclick="submitJoin()">
-✅ Submit Entry
-</button>
+    <button
+      class="btn green"
+      onclick="submitJoin()">
+      ✅ SUBMIT ENTRY
+    </button>
 
-<div id="success" class="success">
-✅ Entry सफलतापूर्वक भेज दी गई!
-</div>
+    <button
+      class="btn gray"
+      onclick="backHome()">
+      ⬅️ BACK
+    </button>
 
-</div>
+    <div id="success" class="success">
+      ✅ Entry successfully भेज दी गई!
+      <br>
+      आपकी entry save होने के लिए भेज दी गई है।
+    </div>
 
-</section>
+  </div>
 
 </div>
 
 
 <script>
 
-// ===============================
-// GOOGLE APPS SCRIPT URL
-// ===============================
-
-const SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbyBjhN6yEHdMqXnqoQmqnOHzp2sSJEhAYS9-cxPxIabW9JVJzVd-EbpKPVRHbHD60tJ/exec";
-
-
-// ===============================
-// LINKS
-// ===============================
+/* ===============================
+   IMPORTANT URLS
+================================ */
 
 const YOUTUBE_URL =
 "https://youtube.com/@realrohit07realrohit07";
@@ -283,13 +292,18 @@ const YOUTUBE_URL =
 const TELEGRAM_URL =
 "https://t.me/freerediam_ff";
 
-const DOWNLOAD_URL =
-"https://github.com/user-attachments/files/32347095/FREE_REDIAM_FF__v1.0.0.zip";
+
+/* ===============================
+   NEW GOOGLE APPS SCRIPT URL
+================================ */
+
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbzZMuOgXoTEKetYULhr4Iss_o2PdHdUHxgbN_W5AdZYXuWXKYRzkIoZvNyU5d40l33M/exec";
 
 
-// ===============================
-// YOUTUBE
-// ===============================
+/* ===============================
+   YOUTUBE
+================================ */
 
 function subscribeYouTube(){
 
@@ -303,9 +317,9 @@ function subscribeYouTube(){
 }
 
 
-// ===============================
-// TELEGRAM
-// ===============================
+/* ===============================
+   TELEGRAM
+================================ */
 
 function joinTelegram(){
 
@@ -314,20 +328,9 @@ function joinTelegram(){
 }
 
 
-// ===============================
-// DOWNLOAD APP
-// ===============================
-
-function downloadApp(){
-
-  window.open(DOWNLOAD_URL,"_blank");
-
-}
-
-
-// ===============================
-// START
-// ===============================
+/* ===============================
+   START
+================================ */
 
 function startApp(){
 
@@ -339,9 +342,9 @@ function startApp(){
 }
 
 
-// ===============================
-// TOURNAMENT JOIN
-// ===============================
+/* ===============================
+   JOIN TOURNAMENT
+================================ */
 
 function joinTournament(tournament){
 
@@ -349,30 +352,47 @@ function joinTournament(tournament){
 
   document.getElementById("join").style.display="block";
 
+  document.getElementById("success").style.display="none";
+
   document.getElementById("selectedTournament").innerHTML =
-  "🏆 Tournament: <b>" + tournament + "</b>";
+    "🏆 Tournament: <b>" + tournament + "</b>";
 
   document.getElementById("join").dataset.tournament =
-  tournament;
+    tournament;
 
   window.scrollTo(0,0);
 }
 
 
-// ===============================
-// SUBMIT ENTRY
-// ===============================
+/* ===============================
+   BACK HOME
+================================ */
+
+function backHome(){
+
+  document.getElementById("join").style.display="none";
+
+  document.getElementById("home").style.display="block";
+
+  window.scrollTo(0,0);
+}
+
+
+/* ===============================
+   SUBMIT ENTRY
+================================ */
 
 function submitJoin(){
 
   const uid =
-  document.getElementById("uid").value.trim();
+    document.getElementById("uid").value.trim();
 
   const name =
-  document.getElementById("name").value.trim();
+    document.getElementById("name").value.trim();
 
   const tournament =
-  document.getElementById("join").dataset.tournament || "";
+    document.getElementById("join").dataset.tournament || "";
+
 
   if(uid === "" || name === ""){
 
@@ -395,7 +415,9 @@ function submitJoin(){
   };
 
 
-  // Google Apps Script को Entry भेजना
+  /* ===============================
+     SEND TO GOOGLE SHEET
+  =============================== */
 
   fetch(SCRIPT_URL,{
 
@@ -410,6 +432,7 @@ function submitJoin(){
     body:JSON.stringify(data)
 
   })
+
   .then(function(){
 
     document.getElementById("success").style.display="block";
@@ -419,9 +442,12 @@ function submitJoin(){
     document.getElementById("name").value="";
 
   })
+
   .catch(function(){
 
-    alert("Entry भेजने में समस्या हुई। कृपया फिर से कोशिश करें।");
+    alert(
+      "Entry भेजने में समस्या हुई। कृपया फिर से कोशिश करें।"
+    );
 
   });
 
