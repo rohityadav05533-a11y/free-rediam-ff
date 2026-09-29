@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>FREE REDIAM FF</title>
 
 <style>
@@ -20,259 +19,253 @@ body{
   min-height:100vh;
 }
 
-header{
-  background:#11111d;
-  padding:18px;
-  text-align:center;
-  font-size:25px;
-  font-weight:bold;
-  color:#ff7a00;
-  border-bottom:1px solid #252536;
-}
-
 .container{
-  max-width:600px;
+  width:100%;
+  max-width:500px;
   margin:auto;
   padding:20px;
 }
 
-.card{
-  background:#12121f;
-  border:1px solid #29293c;
-  border-radius:15px;
-  padding:20px;
-  margin-bottom:18px;
+.page{
+  display:none;
 }
 
-h2{
-  margin-bottom:10px;
-  color:#ff7a00;
+.page.active{
+  display:block;
 }
 
-p{
-  color:#ccc;
-  line-height:1.5;
-  margin-bottom:15px;
+.logo{
+  text-align:center;
+  font-size:32px;
+  font-weight:bold;
+  color:#ff8a00;
+  margin:35px 0 15px;
+}
+
+.subtitle{
+  text-align:center;
+  color:#ddd;
+  line-height:1.6;
+  margin-bottom:30px;
 }
 
 .btn{
   width:100%;
   border:0;
-  border-radius:10px;
-  padding:14px;
-  margin-top:10px;
-  font-size:16px;
+  border-radius:12px;
+  padding:15px;
+  margin:9px 0;
+  font-size:17px;
   font-weight:bold;
   cursor:pointer;
   background:#ff7a00;
   color:white;
 }
 
-.btn.green{
-  background:#19a974;
+.btn:active{
+  transform:scale(.98);
 }
 
-.btn.blue{
-  background:#1687ff;
+.btn.secondary{
+  background:#20202b;
 }
 
-.btn.gray{
-  background:#44445a;
+.card{
+  background:#14141f;
+  border:1px solid #292936;
+  border-radius:16px;
+  padding:18px;
+  margin:15px 0;
 }
 
-.btn:disabled{
-  opacity:.5;
-  cursor:not-allowed;
+.card h3{
+  color:#ff8a00;
+  margin-bottom:8px;
+}
+
+.card p{
+  color:#ddd;
+  margin:6px 0;
 }
 
 input{
   width:100%;
-  padding:14px;
-  margin-top:10px;
+  padding:15px;
+  margin:8px 0;
+  border:1px solid #333;
   border-radius:10px;
-  border:1px solid #33334a;
-  background:#0b0b15;
+  background:#11111a;
   color:white;
   font-size:16px;
+  outline:none;
 }
 
-.tournament{
-  border:1px solid #29293c;
-  border-radius:12px;
-  padding:16px;
-  margin-top:12px;
-  background:#0d0d18;
-}
-
-.tournament h3{
-  color:#ff7a00;
-  margin-bottom:8px;
-}
-
-.tournament p{
-  margin-bottom:5px;
+input:focus{
+  border-color:#ff7a00;
 }
 
 .success{
   display:none;
-  margin-top:15px;
-  padding:15px;
+  background:#12351e;
+  border:1px solid #28a745;
+  color:#b9ffc8;
+  padding:14px;
   border-radius:10px;
-  background:#123b2b;
-  border:1px solid #19a974;
-  color:#8ff0c2;
   text-align:center;
+  margin:15px 0;
+}
+
+.error{
+  display:none;
+  background:#3b1111;
+  border:1px solid #ff4444;
+  color:#ffbcbc;
+  padding:14px;
+  border-radius:10px;
+  text-align:center;
+  margin:15px 0;
+}
+
+.top-title{
+  text-align:center;
+  color:#ff8a00;
+  font-size:27px;
   font-weight:bold;
+  margin:20px 0;
 }
 
 .small{
   font-size:13px;
-  color:#999;
-  margin-top:10px;
+  color:#aaa;
   text-align:center;
+  margin-top:15px;
 }
 
-#home,
-#join{
-  display:none;
+.back{
+  background:#20202b;
+  margin-bottom:15px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  FREE REDIAM FF
-</header>
+<div class="container">
 
+  <!-- WELCOME -->
+  <div id="welcome" class="page active">
 
-<!-- ===============================
-     WELCOME
-================================ -->
+    <div class="logo">FREE REDIAM FF</div>
 
-<div id="welcome" class="container">
+    <div class="subtitle">
+      Free Fire Tournament में आपका स्वागत है।<br>
+      Free Entry • Fair Play • No Hacker
+    </div>
 
-  <div class="card">
-
-    <h2>🔥 FREE REDIAM FF</h2>
-
-    <p>
-      शुरू करने से पहले हमारे YouTube चैनल को Subscribe करें
-      और Telegram से जुड़ें।
-    </p>
-
-    <button class="btn" onclick="subscribeYouTube()">
-      ▶️ YouTube Subscribe
+    <button class="btn" onclick="openYouTube()">
+      ▶ YouTube Subscribe
     </button>
 
-    <button class="btn blue" onclick="joinTelegram()">
-      ✈️ Telegram Join
+    <button class="btn secondary" onclick="openTelegram()">
+      ✈ Telegram Join
     </button>
 
-    <button
-      id="startBtn"
-      class="btn green"
-      onclick="startApp()"
-      disabled>
-      🚀 START
+    <!-- START हमेशा चालू रहेगा -->
+    <button class="btn" onclick="showPage('home')">
+      START
     </button>
 
-    <p class="small">
-      Subscribe button दबाने के बाद START चालू होगा।
-    </p>
+    <div class="small">
+      Subscribe करना जरूरी नहीं है। START सीधे चलेगा।
+    </div>
 
   </div>
 
-</div>
 
+  <!-- HOME -->
+  <div id="home" class="page">
 
-<!-- ===============================
-     HOME
-================================ -->
+    <div class="top-title">FREE REDIAM FF</div>
 
-<div id="home" class="container">
-
-  <div class="card">
-
-    <h2>🏆 Tournaments</h2>
-
-    <div class="tournament">
-
-      <h3>FREE ENTRY</h3>
-
-      <p>Battle Royale</p>
+    <div class="card">
+      <h3>🔥 Battle Royale</h3>
+      <p>FREE ENTRY</p>
       <p>Solo • 48 Players</p>
 
-      <button
-        class="btn"
-        onclick="joinTournament('Battle Royale - Solo')">
-        🎮 JOIN TOURNAMENT
+      <button class="btn" onclick="openJoin('Battle Royale')">
+        JOIN TOURNAMENT
       </button>
-
     </div>
 
-
-    <div class="tournament">
-
-      <h3>FREE ENTRY</h3>
-
-      <p>Clash Squad</p>
+    <div class="card">
+      <h3>⚔ Clash Squad</h3>
+      <p>FREE ENTRY</p>
       <p>Registration Open</p>
 
-      <button
-        class="btn"
-        onclick="joinTournament('Clash Squad')">
-        🎮 JOIN TOURNAMENT
+      <button class="btn" onclick="openJoin('Clash Squad')">
+        JOIN TOURNAMENT
       </button>
-
     </div>
+
+    <button class="btn secondary" onclick="openTelegram()">
+      ✈ Telegram Join
+    </button>
+
+    <button class="btn secondary" onclick="showPage('welcome')">
+      ← Back
+    </button>
 
   </div>
 
-</div>
 
+  <!-- JOIN -->
+  <div id="join" class="page">
 
-<!-- ===============================
-     JOIN
-================================ -->
+    <div class="top-title">TOURNAMENT ENTRY</div>
 
-<div id="join" class="container">
-
-  <div class="card">
-
-    <h2>📝 Tournament Entry</h2>
-
-    <p id="selectedTournament">
-      Tournament
-    </p>
-
-    <input
-      id="uid"
-      type="text"
-      inputmode="numeric"
-      placeholder="Free Fire UID">
-
-    <input
-      id="name"
-      type="text"
-      placeholder="Free Fire Name">
-
-    <button
-      class="btn green"
-      onclick="submitJoin()">
-      ✅ SUBMIT ENTRY
+    <button class="btn back" onclick="showPage('home')">
+      ← Back
     </button>
 
-    <button
-      class="btn gray"
-      onclick="backHome()">
-      ⬅️ BACK
-    </button>
+    <div class="card">
 
-    <div id="success" class="success">
-      ✅ Entry successfully भेज दी गई!
-      <br>
-      आपकी entry save होने के लिए भेज दी गई है।
+      <p id="selectedTournament"
+         style="color:#ff8a00;font-weight:bold;margin-bottom:12px;">
+        Tournament
+      </p>
+
+      <input
+        id="uid"
+        type="text"
+        inputmode="numeric"
+        placeholder="Free Fire UID"
+        autocomplete="off"
+      >
+
+      <input
+        id="name"
+        type="text"
+        placeholder="Free Fire Name"
+        autocomplete="off"
+      >
+
+      <button class="btn" onclick="submitJoin()">
+        🎮 SUBMIT ENTRY
+      </button>
+
+      <div id="success" class="success">
+        Entry भेज दी गई है। कृपया थोड़ी देर बाद अपना registration check करें।
+      </div>
+
+      <div id="error" class="error">
+        Entry भेजने में समस्या हुई। कृपया दोबारा कोशिश करें।
+      </div>
+
+      <p class="small">
+        Free Entry • UID और Name ही चाहिए<br>
+        Free Fire Password कभी न दें।
+      </p>
+
     </div>
 
   </div>
@@ -282,106 +275,66 @@ input{
 
 <script>
 
-/* ===============================
-   IMPORTANT URLS
-================================ */
-
 const YOUTUBE_URL =
 "https://youtube.com/@realrohit07realrohit07";
 
 const TELEGRAM_URL =
 "https://t.me/freerediam_ff";
 
-
-/* ===============================
-   NEW GOOGLE APPS SCRIPT URL
-================================ */
-
+/*
+  आपका नया Apps Script Web App URL
+*/
 const SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbzZMuOgXoTEKetYULhr4Iss_o2PdHdUHxgbN_W5AdZYXuWXKYRzkIoZvNyU5d40l33M/exec";
 
 
-/* ===============================
-   YOUTUBE
-================================ */
+let selectedTournament = "";
 
-function subscribeYouTube(){
 
-  window.open(YOUTUBE_URL,"_blank");
-
-  setTimeout(function(){
-
-    document.getElementById("startBtn").disabled = false;
-
-  },1000);
+/* YouTube */
+function openYouTube(){
+  window.open(YOUTUBE_URL, "_blank");
 }
 
 
-/* ===============================
-   TELEGRAM
-================================ */
-
-function joinTelegram(){
-
-  window.open(TELEGRAM_URL,"_blank");
-
+/* Telegram */
+function openTelegram(){
+  window.open(TELEGRAM_URL, "_blank");
 }
 
 
-/* ===============================
-   START
-================================ */
+/* Page बदलना */
+function showPage(pageId){
 
-function startApp(){
+  document.querySelectorAll(".page").forEach(function(page){
+    page.classList.remove("active");
+  });
 
-  document.getElementById("welcome").style.display="none";
-
-  document.getElementById("home").style.display="block";
+  document.getElementById(pageId).classList.add("active");
 
   window.scrollTo(0,0);
 }
 
 
-/* ===============================
-   JOIN TOURNAMENT
-================================ */
+/* Tournament select */
+function openJoin(tournament){
 
-function joinTournament(tournament){
+  selectedTournament = tournament;
 
-  document.getElementById("home").style.display="none";
+  document.getElementById("selectedTournament").innerText =
+    "Tournament: " + tournament;
 
-  document.getElementById("join").style.display="block";
+  document.getElementById("uid").value = "";
+  document.getElementById("name").value = "";
 
-  document.getElementById("success").style.display="none";
+  document.getElementById("success").style.display = "none";
+  document.getElementById("error").style.display = "none";
 
-  document.getElementById("selectedTournament").innerHTML =
-    "🏆 Tournament: <b>" + tournament + "</b>";
-
-  document.getElementById("join").dataset.tournament =
-    tournament;
-
-  window.scrollTo(0,0);
+  showPage("join");
 }
 
 
-/* ===============================
-   BACK HOME
-================================ */
-
-function backHome(){
-
-  document.getElementById("join").style.display="none";
-
-  document.getElementById("home").style.display="block";
-
-  window.scrollTo(0,0);
-}
-
-
-/* ===============================
-   SUBMIT ENTRY
-================================ */
-
+/* Entry Submit */
 function submitJoin(){
 
   const uid =
@@ -390,64 +343,57 @@ function submitJoin(){
   const name =
     document.getElementById("name").value.trim();
 
-  const tournament =
-    document.getElementById("join").dataset.tournament || "";
+  const success =
+    document.getElementById("success");
 
+  const error =
+    document.getElementById("error");
 
-  if(uid === "" || name === ""){
-
-    alert("कृपया Free Fire UID और Name भरें।");
-
+  if(uid === ""){
+    alert("कृपया Free Fire UID डालें।");
     return;
   }
 
+  if(name === ""){
+    alert("कृपया Free Fire Name डालें।");
+    return;
+  }
+
+  success.style.display = "none";
+  error.style.display = "none";
+
 
   const data = {
-
-    tournament: tournament,
-
+    tournament: selectedTournament,
     uid: uid,
-
     name: name,
-
-    youtube: "Subscribed"
-
+    youtube: "Not Required"
   };
 
 
-  /* ===============================
-     SEND TO GOOGLE SHEET
-  =============================== */
-
-  fetch(SCRIPT_URL,{
-
-    method:"POST",
-
-    mode:"no-cors",
-
-    headers:{
-      "Content-Type":"text/plain;charset=utf-8"
+  /*
+    text/plain एक simple POST request है,
+    इसलिए Apps Script Web App के साथ इस्तेमाल किया गया है।
+  */
+  fetch(SCRIPT_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8"
     },
-
-    body:JSON.stringify(data)
-
+    body: JSON.stringify(data)
   })
-
   .then(function(){
 
-    document.getElementById("success").style.display="block";
+    success.style.display = "block";
 
-    document.getElementById("uid").value="";
-
-    document.getElementById("name").value="";
+    document.getElementById("uid").value = "";
+    document.getElementById("name").value = "";
 
   })
-
   .catch(function(){
 
-    alert(
-      "Entry भेजने में समस्या हुई। कृपया फिर से कोशिश करें।"
-    );
+    error.style.display = "block";
 
   });
 
